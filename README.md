@@ -95,16 +95,16 @@ The individual options are explained below.
 
 | Name | Type | Default | Description |   
 | --- | --- | --- | --- | 
-| horizontalSpacing | number | 120 | The horizontal distance among nodes |
-| verticalSpacing | number | 100 | The vertical distance among nodes |
-| useHead | boolean | true | Active the use of head nodes |
-| useGroups | boolean | true | Active the use of groups  |
-| sortGroups | boolean | true | Active if the groups should be sorted  |
-| sortNodeIds | boolean | true | Active if the nodes should be sorted |
-| direction | string | "LR" | Define the direction. Available options ```LR``` and ```RL``` |
-| smoothRoundnessRange | number | 0.09 | The size of edge's roundness |
-| useSmooth | boolean | true | Active the use of edge's smooth |
-| groupNodeBy | string |  "group" | Define the properties used for grouping|
+| ```horizontalSpacing``` | number | 120 | The horizontal distance among nodes |
+| ```verticalSpacing``` | number | 100 | The vertical distance among nodes |
+| ```useHead``` | boolean | true | Active the use of head nodes |
+| ```useGroups``` | boolean | true | Active the use of groups  |
+| ```sortGroups``` | boolean | true | Active if the groups should be sorted  |
+| ```sortNodeIds``` | boolean | true | Active if the nodes should be sorted |
+| ```direction``` | string | "LR" | Define the direction. Available options ```LR``` and ```RL``` |
+| ```smoothRoundnessRange``` | number | 0.09 | The size of edge's roundness |
+| ```useSmooth``` | boolean | true | Active the use of edge's smooth |
+| ```groupNodeBy``` | string |  "group" | Define the properties used for grouping|
 
 ## Questions or Suggestions
 
