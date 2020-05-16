@@ -13,10 +13,14 @@ A Vis.js layout extension for formatting nodes in a sequence or group sequence
 
 Groups activated
 
+> [![screenshot][2]][2]
 ![with-grop](https://user-images.githubusercontent.com/114015/82110234-8a101b80-970a-11ea-9367-d01cbdbf9662.png)
 
 Groups disactived
 
 ![without-gropu](https://user-images.githubusercontent.com/114015/82126173-ec076a00-9778-11ea-892f-ea9cb614df12.png)
 
-![158965032923248800](https://user-images.githubusercontent.com/114015/82126317-f1b17f80-9779-11ea-8713-9b8a2f9ff483.png)
+> [![screenshot][1]][1]
+
+  [1]: https://user-images.githubusercontent.com/114015/82110234-8a101b80-970a-11ea-9367-d01cbdbf9662.png
+  [2]: https://user-images.githubusercontent.com/114015/82126173-ec076a00-9778-11ea-892f-ea9cb614df12.png
