@@ -94,7 +94,7 @@ let defaultOptions = {
 The individual options are explained below.
 
 | Name | Type | Default | Description |   
-| --- | --- | --- | --- | 
+| --- | :---: | :---: | --- | 
 | ```horizontalSpacing``` | number | 120 | The horizontal distance among nodes |
 | ```verticalSpacing``` | number | 100 | The vertical distance among nodes |
 | ```useHead``` | boolean | true | Active the use of head nodes |
