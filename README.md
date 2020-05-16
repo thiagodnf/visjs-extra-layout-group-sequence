@@ -34,6 +34,28 @@ Updated versions of these toolsets may break the build or app. If you have issue
 
 ## Getting Started
 
+### Online access
+
+Click on the on the link below for seeing this tool in action.
+
+https://thiagodnf.github.io/visjs-extras-groupsequence/
+
+### Default options
+
+```js
+let defaultOptions = {
+    horizontalSpacing: 120,
+    verticalSpacing: 100,
+    useHead: true,
+    useGroups: true,
+    sortGroups: true,
+    sortNodeIds: true,
+    direction: "LR",
+    smoothRoundnessRange: 0.09,
+    useSmooth: true,
+    groupNodeBy: "group",
+}
+```
 
 ## Contribute
 
