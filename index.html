@@ -23,12 +23,45 @@
                 width: 100%;
                 height: 400px;
             }
+            /*
+* ==========================================
+* Navbar
+* ==========================================
+*/
+
+.navbar-custom {
+    background: #07508E;
+background: -moz-linear-gradient(-45deg,  #134099 0%, #207cca 66%, #378ed6 100%);
+background: -webkit-linear-gradient(-45deg,  #134099 0%,#207cca 66%,#378ed6 100%);
+background: linear-gradient(135deg,  #134099 0%,#207cca 66%,#378ed6 100%);
+}
+
+/* change the brand and text color */
+.navbar-custom .navbar-brand, .navbar-custom .navbar-text {
+    color: white;
+}
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+    color: #d5d7d8;
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link, .navbar-custom .nav-item:hover .nav-link {
+    color: #ffffff;
+}
+
+.navbar-custom .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
         </style>
     </head>
 	<body>
         <header>
-            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                <a class="navbar-brand" href="#">visjs-extra-layout-group-sequence</a>
+            <nav class="navbar navbar-expand-md fixed-top navbar-custom">
+
+                <a class="navbar-brand mt-0 pt-0 pb-0" href="#">
+
+                    <img width="180px" src="https://user-images.githubusercontent.com/114015/82130874-41ee0900-979d-11ea-944e-e61cb88ccb82.png"/>
+                </a>
             </nav>
         </header>
         <main>
