@@ -1,6 +1,6 @@
 # visjs-extras-groupsequence
 
-Vis.js layout plugin for a sequence of nodes
+A Vis.js layout extension for formatting nodes in a sequence or group sequence
 
 ## Screenshot
 
