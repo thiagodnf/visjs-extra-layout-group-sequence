@@ -40,7 +40,41 @@ Click on the on the link below for seeing this tool in action.
 
 https://thiagodnf.github.io/visjs-extras-groupsequence/
 
-### Default options
+### Usage
+
+Include the javascript file in your html file
+
+```html
+<script type="text/javascript" src="src/group-sequence.js"></script>
+```
+
+and call the class before sending the nodes the vis-network
+
+```js
+
+let gsOptions = {};
+
+let layout  = new GroupSequence(gsOptions);
+
+graph = layout.process(graph);
+
+var data = {
+    nodes: new vis.DataSet(graph.nodes),
+    edges: new vis.DataSet(graph.edges)
+};
+
+var options = {
+    physics: false
+};
+
+var network = new vis.Network($container[0] , data, options);
+```
+
+Warning! Don't forget to set ```physics: false```
+
+### Parameters
+
+The default options are:
 
 ```js
 let defaultOptions = {
