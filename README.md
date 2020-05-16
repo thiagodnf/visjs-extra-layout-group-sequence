@@ -2,6 +2,7 @@
 
 A Vis.js layout extension for formatting nodes in a sequence or group sequence
 
+[![GitHub Release](https://img.shields.io/github/release/thiagodnf/visjs-extras-groupsequence.svg?logo=GitHub&style=flat-square 'GitHub Release')](https://github.com/thiagodnf/visjs-extras-groupsequence/releases/latest)
 [![GitHub contributors](https://img.shields.io/github/contributors/thiagodnf/visjs-extras-groupsequence.svg)](https://github.com/thiagodnf/visjs-extras-groupsequence/graphs/contributors)
 [![GitHub stars](https://img.shields.io/github/stars/thiagodnf/visjs-extras-groupsequence.svg)](https://github.com/almende/thiagodnf/visjs-extras-groupsequence)
 
