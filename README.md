@@ -107,6 +107,12 @@ The individual options are explained below.
 | groupNodeBy | string |  "group" | Define the properties used for grouping|
 
 
+## Authors
+
+* **Thiago Ferreira** - *Initial work*
+
+See also the list of [contributors](https://github.com/thiagodnf/visjs-extras-groupsequence/graphs/contributors) who participated in this project.
+
 ## Contribute
 
 Contributions to the this project are very welcome! We can't do this alone! Feel free to fork this project, work on it and then make a pull request.
