@@ -1,4 +1,4 @@
-# visjs-extras-groupsequence
+![Untitled drawing](https://user-images.githubusercontent.com/114015/82124812-8367bf80-976f-11ea-9663-16b4358403f1.png)
 
 A Vis.js layout extension for formatting nodes in a sequence or group sequence
 
