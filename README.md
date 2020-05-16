@@ -13,7 +13,6 @@ A Vis.js layout extension for formatting nodes in a sequence or group sequence
 - Aggregate the nodes in groups
 - Use a "head" node to display the group's name
 - Select which node's property should be used to grouping
-- 
 
 ## Screenshot
 
@@ -28,6 +27,14 @@ Groups disactived
   [1]: https://user-images.githubusercontent.com/114015/82110234-8a101b80-970a-11ea-9367-d01cbdbf9662.png
   [2]: https://user-images.githubusercontent.com/114015/82126173-ec076a00-9778-11ea-892f-ea9cb614df12.png
   
+## Requirements
+Updated versions of these toolsets may break the build or app. If you have issues, try mirroring these exact versions.
+
+- Vis.js 7.6.4
+
+## Getting Started
+
+
 ## Contribute
 
 Contributions to the this project are very welcome! We can't do this alone! Feel free to fork this project, work on it and then make a pull request.
