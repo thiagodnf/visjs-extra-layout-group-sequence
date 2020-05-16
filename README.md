@@ -5,7 +5,8 @@ A Vis.js layout extension for formatting nodes in a sequence or group sequence
 [![GitHub Release](https://img.shields.io/github/release/thiagodnf/visjs-extras-groupsequence.svg)](https://github.com/thiagodnf/visjs-extras-groupsequence/releases/latest)
 [![GitHub contributors](https://img.shields.io/github/contributors/thiagodnf/visjs-extras-groupsequence.svg)](https://github.com/thiagodnf/visjs-extras-groupsequence/graphs/contributors)
 [![GitHub stars](https://img.shields.io/github/stars/thiagodnf/visjs-extras-groupsequence.svg)](https://github.com/almende/thiagodnf/visjs-extras-groupsequence)
-
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
+[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
 ## Features
 
@@ -29,4 +30,12 @@ Groups disactived
   
 ## Contribute
 
-Contributions to the this project are very welcome! We can't do this alone!
+Contributions to the this project are very welcome! We can't do this alone! Feel free to fork this project, work on it and then make a pull request.
+
+## Questions or Suggestions
+
+Feel free to create <a href="https://github.com/thiagodnf/visjs-extras-groupsequence/issues">issues</a> here as you need
+
+## License
+
+MIT License
