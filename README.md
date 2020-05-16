@@ -117,4 +117,8 @@ Feel free to create <a href="https://github.com/thiagodnf/visjs-extras-groupsequ
 
 ## License
 
-MIT License
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+<a href="https://www.buymeacoffee.com/thiagodnf" target="_blank">
+  <img src="https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-2.svg" alt="Buy Me A Coffee">
+</a>
