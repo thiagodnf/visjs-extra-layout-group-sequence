@@ -1,14 +1,14 @@
 {
-    "name": "visjs-extra-layout-group-sequence",
-    "version": "1.0.0",
+    "name": "visjs-extras-groupsequence",
+    "version": "1.1.1",
     "author": "Thiago Ferreira",
     "license": "MIT",
-    "description": "Vis.js layout plugin for a sequence of nodes",
-    "homepage": "https://thiagodnf.github.io/visjs-extra-layout-group-sequence",
+    "description": "A Vis.js layout extension for formatting nodes in a sequence or group sequence",
+    "homepage": "https://thiagodnf.github.io/visjs-extras-groupsequence",
     "private": true,
     "repository": {
         "type": "git",
-        "url": "https://thiagodnf.github.io/visjs-extra-layout-group-sequence"
+        "url": "https://thiagodnf.github.io/visjs-extras-groupsequence"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
