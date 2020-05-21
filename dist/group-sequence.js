@@ -180,4 +180,16 @@ class GroupSequence {
             edges: processedEdges
         };
     }
+
+    static clear (graph) {
+
+        graph.nodes.forEach( (node) => {
+            delete node.x;
+            delete node.y;
+        });
+
+        graph.edges.forEach( (edge) => {
+            delete edge.smooth;
+        });
+    }
 }
