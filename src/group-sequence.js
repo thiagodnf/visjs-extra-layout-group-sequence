@@ -3,8 +3,9 @@ const HEAD = "head";
 const USER = "user";
 
 let defaultOptions = {
-    horizontalSpacing: 120,
+    horizontalSpacing: 50,
     verticalSpacing: 100,
+    spacingFromHead: 10,
     useHead: true,
     useGroups: true,
     sortGroups: true,
@@ -13,6 +14,7 @@ let defaultOptions = {
     smoothRoundnessRange: 0.09,
     useSmooth: true,
     groupNodeBy: "group",
+    sortNodes: undefined,
 }
 
 class GroupSequence {
@@ -21,63 +23,12 @@ class GroupSequence {
         this.options = Object.assign(defaultOptions, options);
     }
 
-    splitEdgesByGroup(edges){
-
-        let groups = {};
-
-        edges.forEach((edge, j) => {
-
-            let key = edge.from + "_" + edge.to;
-
-            if (!groups[key]) {
-				groups[key] = [];
-            }
-
-            groups[key].push(edge);
-        });
-
-        return groups;
-    }
-
-    splitNodesByGroup(nodes){
-
-        let prop = this.options.groupNodeBy;
-
-		let groups = {};
-
-		nodes.forEach(node => {
-
-            let key = node[prop];
-
-			if (!groups[key]) {
-				groups[key] = [];
-			}
-
-            node.type = USER;
-
-			groups[key].push(node);
-        });
-
-        if (this.options.sortGroups) {
-
-            const ordered = {};
-
-            Object.keys(groups).sort().forEach(function(key) {
-                ordered[key] = groups[key];
-            });
-
-            return ordered;
-        }
-
-		return groups;
-    }
-
     createHeadNode (groupName) {
 
         return {
-            id: "h" + groupName,
+            id: "header_" + groupName,
             shape: 'box',
-            label: groupName,
+            label: groupName.toString(),
             group: groupName,
             type: HEAD,
             color: {
@@ -87,98 +38,120 @@ class GroupSequence {
         }
     }
 
-    positionNodes(i, groupName, nodes, callback = () => {}){
-
-        if (this.options.sortNodeIds) {
-            nodes.sort((a, b) => {a.id - b.id});
+    getGroupNames(nodes, prop){
+        
+        if (!this.options.useGroups) {
+            return [1];
         }
 
-        if (this.options.useHead) {
-            nodes.push(this.createHeadNode(groupName));
-        }
-
-        var horizontalDir = this.options.direction == "LR" ? 1.0 : -1.0;
-
-        nodes.forEach((node, j) => {
-
-            if (node.type === HEAD) {
-                node.x = nodes[0].x - 100;
-                node.fixed = true;
-            } else {
-                node.x = (j - 1) * (horizontalDir * this.options.horizontalSpacing)
-            }
-
-            node.y = i * (this.options.verticalSpacing);
-
-            callback(node);
+        return nodes.map(e => e[prop]).filter((value, index, self) => {
+            return self.indexOf(value) === index;
         });
     }
 
-    process(graph){
-
-        if (!graph) {
-            throw new SyntaxError('graph must not be undefined');
-        }
-
-        let cacheNodes = {};
-
-        let processedNodes = [];
-        let processedEdges = [];
-
-        if (this.options.useGroups) {
-
-            let nodeGroups = this.splitNodesByGroup(graph.nodes);
-
-            let groupNames = Object.keys(nodeGroups);
-
-            for (let i = 0; i < groupNames.length; i++) {
-
-                let groupName = groupNames[i];
-                let nodes = nodeGroups[groupName];
-
-                this.positionNodes(i, groupName, nodes, (node) => {
-
-                    cacheNodes[node.id] = node;
-                    processedNodes.push(node);
-                });
+    getNodes(nodes, prop, value){
+        
+        return nodes.get({
+            filter: function (item) {
+                return item[prop] == value;
             }
-        } else {
-            this.positionNodes(0, "All", graph.nodes, (node) => {
+        });
+    }
 
-                cacheNodes[node.id] = node;
-                processedNodes.push(node);
+    sort(nodes, prop){
+
+        return nodes.sort((a, b) => {
+
+            if (a.type && a.type == HEAD) {
+                return -1;
+            }
+
+            if (b.type && b.type == HEAD) {
+                return -1;
+            }
+
+            if (this.options.sortNodes) {
+                return this.options.sortNodes(a,b);
+            }
+
+            return a[prop] - b[prop];
+        });
+    }
+
+    arrange(network, data){
+
+        let prop = this.options.groupNodeBy || "group";
+        let hSpacing = this.options.horizontalSpacing || 10;
+        let vSpacing = this.options.verticalSpacing || 10;
+        let spacingFromHead = this.options.spacingFromHead || 10;
+
+        let groupNames = this.getGroupNames(data.nodes, prop);
+
+        if (this.options.useHead) {
+            
+            groupNames.forEach(groupName => {
+                data.nodes.add(this.createHeadNode(groupName));
             });
         }
 
-        if (this.options.useSmooth) {
+        groupNames.forEach((groupName, i) => {
+            
+            var nodes = data.nodes.map(e => e);
 
-            let edgeGroups = this.splitEdgesByGroup(graph.edges);
-
-            for (let i in edgeGroups) {
-
-                edgeGroups[i].forEach((edge, j) => {
-
-                    let nodeFrom = cacheNodes[edge.from];
-                    let nodeTo = cacheNodes[edge.to];
-
-                    let distance = Math.abs(nodeFrom.x - nodeTo.x);
-                    let rate = (distance / this.options.horizontalSpacing)
-
-                    if(rate != 1 || edgeGroups[i].length != 1){
-                        edge.smooth = {type: 'curvedCCW', roundness: rate * (j + 1) * this.options.smoothRoundnessRange};
-                    }
-
-                    processedEdges.push(edge);
-                });
+            if (this.options.useGroups) {
+                nodes = this.getNodes(data.nodes, prop, groupName);
             }
-        } else {
-            processedEdges = graph.edges;
-        }
 
-        return {
-            nodes: processedNodes,
-            edges: processedEdges
-        };
+            nodes = this.sort(nodes, "id");
+
+            let widths = [];
+            let positions = [];
+
+            nodes.forEach((node, j) => {
+
+                let n = network.body.nodes[node.id];
+
+                let width = n.shape.width;
+
+                widths.push(width);
+
+                n.x = 0;
+
+                if (j == 0) {
+                    n.x -= (width / 2); 
+                } else if (j == 1) {
+                    n.x += (spacingFromHead) + (width / 2);
+                } else {
+                    n.x += (hSpacing) + positions[j - 1] + widths[j - 1]; 
+                }
+
+                n.y = vSpacing * i;
+
+                positions.push(n.x);
+            });
+        });
+        
+        let cacheEdge = {};
+        
+        data.edges.forEach( (edge) => {
+
+            let e = network.body.edges[edge.id];
+
+            let key = e.fromId + "_" + e.toId;
+
+            cacheEdge[key] = cacheEdge[key] || 0;
+            cacheEdge[key] += this.options.smoothRoundnessRange;
+
+            let roundnesss = cacheEdge[key];
+
+            data.edges.update({
+                id: edge.id, 
+                smooth: {
+                    type: 'curvedCCW',
+                    roundness: roundnesss
+                }
+            });
+        });
     }
 
     static clear (graph) {
