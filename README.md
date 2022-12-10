@@ -18,16 +18,18 @@ A Vis.js layout extension for formatting nodes in a sequence or group sequence.
 
 Groups activated
 
-> [![screenshot][1]][1]
+<kbd>
+  <img class="screenshot" src="https://user-images.githubusercontent.com/114015/82110234-8a101b80-970a-11ea-9367-d01cbdbf9662.png"/>
+</kbd>
 
 Groups disactived
 
-> [![screenshot][2]][2]
-
-  [1]: https://user-images.githubusercontent.com/114015/82110234-8a101b80-970a-11ea-9367-d01cbdbf9662.png
-  [2]: https://user-images.githubusercontent.com/114015/82126173-ec076a00-9778-11ea-892f-ea9cb614df12.png
+<kbd>
+  <img class="screenshot" src="https://user-images.githubusercontent.com/114015/82126173-ec076a00-9778-11ea-892f-ea9cb614df12.png"/>
+</kbd>
 
 ## Requirements
+
 Updated versions of these toolsets may break the build or app. If you have issues, try mirroring these exact versions.
 
 - Vis.js 7.6.4
